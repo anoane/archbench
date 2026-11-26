@@ -24,7 +24,10 @@ from a source-only release.
 
 Local source-release results:
 
-- `./bench selftest`: 132/132 Python host tests passed on Python 3.15.2;
+- `./bench selftest`: 134/134 Python host tests passed on Python 3.15.2. The
+  two post-validation additions bind this README catalogue to the live registry;
+  the archived CUDA 13.5 validation snapshot remains the explicitly labelled
+  132-test run, and no CUDA worker source changed in this documentation update.
 - `tools/check_alu_reference.py --compiler g++`: 532,480 host-executed limb
   transitions passed for widths 1–128 and both signedness modes;
 - CUDA-disabled CMake/CTest: 3/3 tests passed with AppleClang 21;

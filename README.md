@@ -21,6 +21,130 @@ acceptance and Compute Sanitizer checks on your hardware. The four supplied
 older runs are preserved as historical evidence, not relabeled as new results.
 See [validation evidence](docs/validation.md) and [changes and findings](docs/release_0_2_0.md).
 
+## Complete benchmark and test catalogue
+
+The generated table below is the operation-level inventory of the effective
+`full` selection: the deduplicated union of `smoke`, `standard`, `exhaustive`
+and every bundled configuration, followed by default software-counterpart
+expansion. It lists all 20 registered families, every operation name, every
+type/format class, every requested backend, and the named semantic policies.
+The shape/control tables then enumerate their numeric grids. It does not pretend
+that a compact Markdown table can print 404,129 full case labels. The exact
+JSONL export immediately below is the authoritative one-object-per-case list.
+
+<!-- BEGIN GENERATED BENCHMARK CATALOG -->
+
+This table is generated from the effective `full` selection after default
+software-pair expansion. Contiguous integer and quantization widths are
+compressed as inclusive ranges; every other operation, type, backend and
+mode/policy value is written explicitly.
+
+| Family | Cases | Operations | Types and formats | Backends | Modes and policies |
+|---|---:|---|---|---|---|
+| `integer` | 209,700 | `add`, `and`, `div`, `mad`, `max`, `min`, `mul`, `or`, `rem`, `shl`, `shr`, `sub`, `xor` | dtype: `i1`–`i128`, `u1`–`u128` | `core` | mode: `latency`, `throughput` |
+| `integer_width` | 1,401 | `add`, `and`, `max`, `min`, `mul`, `or`, `shl`, `shr`, `sub`, `xor` | bits: `1`–`64`; <br>signed: `false`, `true` | `core` | — |
+| `scalar` | 2,272 | `abs`, `add`, `div`, `fma`, `max`, `min`, `mul`, `sqrt`, `sub` | dtype: `bf16`, `f16`, `f32`, `f64` | `core` | mode: `latency`, `throughput` |
+| `bit` | 570 | `brev`, `clz`, `lop3`, `popc`, `prmt`, `shf` | dtype: `u32`, `u64` | `core` | mode: `latency`, `throughput` |
+| `packed` | 1,138 | `add`, `dp2a_hi`, `dp2a_lo`, `dp4a`, `fma`, `mul` | dtype: `bf16x2`, `f16x2`, `i8`, `i16`, `u8`, `u16`; <br>dtype-b: `i8`, `u8` | `core` | mode: `latency`, `throughput` |
+| `sfu` | 768 | `cos`, `exp2`, `log2`, `rcp`, `rsqrt`, `sin` | dtype: `f32` | `core` | mode: `latency`, `throughput`; <br>precision: `approx`, `precise` |
+| `convert` | 495 | `cast` | dtype: `bf16`, `f16`, `f32`, `f64`, `i8`, `i16`, `i32`, `i64`, `u8`, `u16`, `u32`, `u64`; <br>dtype-b: `bf16`, `f16`, `f32`, `f64`, `i8`, `i16`, `i32`, `i64`, `u8`, `u16`, `u32`, `u64` | `core` | round: `rd`, `rn`, `ru`, `rz` |
+| `tensor` | 6,811 | `mma` | dtype: `b1_and`, `b1_xor`, `bf16`, `e2m1`, `e2m3`, `e3m2`, `e4m3`, `e5m2`, `f16`, `f64`, `i4`, `i8`, `tf32`, `u4`, `u8`; <br>dtype-b: `b1_and`, `b1_xor`, `bf16`, `e2m1`, `e2m3`, `e3m2`, `e4m3`, `e5m2`, `f16`, `f64`, `i4`, `i8`, `tf32`, `u4`, `u8`; <br>accumulator: `f16`, `f32`, `f64`, `i32` | `emulated`, `native` | mode: `latency`, `throughput`; <br>scale: `mx`, `none`, `nv`; <br>scale-exp-a: `-2`, `0`, `2`; <br>scale-exp-b: `-2`, `0`, `1`, `2`; <br>mma-kind: `expanded`; <br>pattern: `alternating_sign`, `ones`; <br>reset-every: `0`, `512` |
+| `gemm` | 158,365 | `gemm` | dtype: `bf16`, `c64`, `c128`, `f16`, `f32`, `f64`, `fp4_e2m1`, `fp8_e4m3`, `fp8_e5m2`, `i8`; <br>dtype-b: `bf16`, `c64`, `c128`, `f16`, `f32`, `f64`, `fp4_e2m1`, `fp8_e4m3`, `fp8_e5m2`, `i8`; <br>output: `bf16`, `c64`, `c128`, `f16`, `f32`, `f64`, `i32` | `cublas`, `cublaslt`, `software` | compute: `bf16x9`, `default`, `fast_bf16`, `fast_f16`, `fixedpoint`, `pedantic`, `tf32`; <br>cublas-algo: `default_tensor_op`; <br>scale-mode: `block16`, `block32`; <br>epilogue: `bias`, `bias_gelu`, `bias_relu`, `default`, `gelu`, `relu`; <br>trans-a: `N`, `T`; <br>trans-b: `N`, `T`; <br>batch-mode: `pointer`; <br>emulation-strategy: `eager`, `performant`; <br>mantissa-control: `dynamic`, `fixed`; <br>mantissa-bits: `0`, `64`, `128`; <br>software-policy: `mathematical-reference`; <br>input: `rank1` |
+| `blas` | 1,034 | `asum`, `axpy`, `copy`, `dot`, `geam`, `gemv`, `hemm`, `iamax`, `iamin`, `nrm2`, `scal`, `swap`, `symm`, `syrk`, `trmm`, `trsm` | dtype: `c64`, `c128`, `f32`, `f64` | `cublas`, `software` | side: `left`, `right`; <br>uplo: `lower`, `upper`; <br>diag: `nonunit`, `unit` |
+| `quant` | 7,220 | `decode`, `encode`, `roundtrip` | format: `bf16`, `e2m1`, `e2m3`, `e3m2`, `e4m3`, `e5m2`, `f16`, `nf4`, `s1`–`s16`, `u1`–`u16` | `core` | scale-format: `e4m3`, `e8m0`, `f32`; <br>distribution: `constant`, `outliers`, `ramp`, `zeros` |
+| `quant_gemm` | 11,847 | `gemm` | dtype: `bf16`, `f16`, `f32`; <br>format: `bf16`, `e2m1`, `e2m3`, `e3m2`, `e4m3`, `e5m2`, `f16`, `nf4`, `s1`–`s16`, `u1`–`u16` | `cublas`, `software` | mode: `dequant_gemm`, `end_to_end`, `fused`, `predequant_gemm` |
+| `memory` | 573 | `copy`, `cp_async`, `gather`, `pointer_chase`, `read`, `scatter`, `shared_bank`, `shared_copy`, `strided`, `triad`, `write` | dtype: `f32`, `u32` | `core` | — |
+| `atomic` | 772 | `add`, `and`, `cas`, `exchange`, `max`, `min`, `or`, `xor` | dtype: `bf16`, `f16`, `f32`, `f64`, `i8`, `i16`, `i32`, `i64`, `u8`, `u16`, `u32`, `u64` | `core` | — |
+| `collective` | 82 | `ballot`, `barrier`, `block_reduce`, `block_scan`, `reduce_sum`, `scan`, `shuffle`, `sort` | dtype: `f32`, `u32` | `core` | — |
+| `workload` | 626 | `attention`, `gelu`, `gelu_tanh`, `layernorm`, `relu`, `rmsnorm`, `rope`, `silu`, `softmax`, `swiglu` | dtype: `bf16`, `f16`, `f32`, `f64` | `core` | causal: `false`, `true` |
+| `transfer` | 85 | `d2d`, `d2h`, `h2d`, `managed_first_touch`, `managed_prefetch`, `p2p` | — | `core` | pinned: `false`, `true` |
+| `launch` | 6 | `empty`, `graph` | — | `core` | — |
+| `sparse` | 82 | `csr_spmm`, `csr_spmv` | dtype: `f32`, `f64` | `cusparse`, `software` | — |
+| `fft` | 282 | `c2c`, `c2r`, `r2c` | dtype: `bf16`, `f16`, `f32`, `f64` | `cufft`, `software` | direction: `forward`, `inverse` |
+| **Total** | **404,129** | **20 registered families** | — | — | — |
+
+<!-- END GENERATED BENCHMARK CATALOG -->
+
+### Export the literal list of all 404,129 cases
+
+```sh
+mkdir -p plans
+./bench plan --profile full --software-pairs --output plans/full.jsonl
+wc -l plans/full.jsonl
+```
+
+The line count is `404129`. Each line contains the canonical family, parameters,
+provider, tags and stable case ID. Replaying that `.jsonl` plan does not expand
+it again unless `--software-pairs` is explicitly requested. Use this export when
+reviewing every correlated shape and control combination; the axes below are
+not claims that every displayed value is crossed with every other value.
+
+### Latency, throughput and overhead tests
+
+- Integer, scalar floating-point, bit, packed, SFU and tensor-MMA families have
+  distinct `latency` and `throughput` cases. Instruction latency is a one-warp,
+  one-block dependency chain with ILP 1; throughput covers ILP 1/2/4/8 and the
+  applicable 32/64/128/256/512-thread grids.
+- Instruction loops cover 32, 64, 256 and 1,024 iterations. Tensor configurations
+  additionally include the fixed 20,000-iteration, 1,056-block throughput case.
+- `pointer_chase` measures dependent memory-load latency. Memory bandwidth tests
+  separately cover reads, writes, copies, triads, gathers, scatters, striding,
+  asynchronous copies, shared-memory copies and bank conflicts.
+- Empty-kernel and 1/8/16/128-node graph cases measure launch overhead. H2D, D2H,
+  D2D, managed-memory and P2P cases measure transfer behavior rather than ALU
+  throughput.
+- Every timed family uses the selected sampling policy and records all samples,
+  mean, median, standard deviation, CV, MAD, p10/p90, range and drift. An
+  amortized reciprocal throughput metric is never relabeled instruction latency.
+
+### Integer, unsigned, floating-point and mixed-operation coverage
+
+- Signed and unsigned integer instructions cover every width from 1 through
+  128 bits. Vector-width arithmetic independently covers signed/unsigned widths
+  1 through 64. Integer atomics retain every requested width/operation
+  combination and report unsupported forms instead of projecting U32 behavior
+  onto other types.
+- Floating-point scalar and workload paths cover FP16, BF16, FP32 and FP64.
+  GEMM/BLAS/FFT also cover real and complex storage where their APIs admit it.
+- Packed and mixed integer tests include FP16x2/BF16x2 arithmetic, all signed
+  and unsigned DP4A operand pairs, and DP2A low/high combinations.
+- Mixed tensor/GEMM tests cover I8/U8, I4/U4, binary AND/XOR, FP16, BF16, TF32,
+  FP64, FP8, FP6 and FP4 operands; FP16/FP32/FP64/I32 accumulation; block/MX/NV
+  scaling; and native/requested versus explicit emulated/software counterparts.
+- Conversions cover the full Cartesian source/destination set of I/U8/16/32/64
+  and FP16/BF16/FP32/FP64, with RN/RZ/RD/RU modes where the conversion observes
+  rounding. Quantization covers S1–S16, U1–U16, E2M1/E2M3/E3M2/E4M3/E5M2,
+  NF4, FP16 and BF16 storage.
+
+### Shape and control axes
+
+| Area | Bundled axes and controls |
+|---|---|
+| Instruction microbenchmarks | latency/throughput, ILP 1/2/4/8, 32/64/128/256/512 threads, 32/64/256/1,024 iterations |
+| Tensor MMA | native/emulated backends, latency/throughput, ILP 1/2/4/8, 32/64/128/256 threads, accumulator and scaling choices, ones/alternating-sign patterns, scale exponents -2/0/1/2 |
+| Dense GEMM | cuBLAS/cuBLASLt/software; NN/TN/NT/TT; batch 1/3/4/16 and pointer-batch gaps 7/256; leading-dimension padding 0/3; workspaces 0/64/256 MiB; 4/8/16/32 algorithm requests plus `default_tensor_op`; alpha 0.75/1, beta 0/0.25/0.5, rank-1 validation, block16/block32 scaling and all documented epilogues |
+| GEMM dimensions | M: 1, 2, 4, 8, 16, 31, 32, 63, 64, 127, 128, 255, 256, 257, 511, 512, 1,000, 1,024, 2,048, 4,096, 8,192, 16,384; N: 16, 32, 33, 64, 65, 128, 129, 256, 257, 511, 512, 513, 1,001, 1,024, 2,048, 4,096, 8,192, 14,336, 16,384, 28,672; K: 16, 32, 64, 65, 127, 128, 255, 256, 512, 513, 1,003, 1,024, 1,025, 2,048, 4,096, 7,168, 8,192, 16,384 |
+| Quantization | groups 1/16/32/64/128/256/1,024; F32/E8M0/E4M3 scales; encode/decode/roundtrip and zero/constant/ramp/outlier distributions; fused/dequant/predequant/end-to-end GEMM modes |
+| Memory and systems | 32 through 268,435,456 elements where configured; cache-sized and large sweeps, strides 1/2/3/4/8/16/31/32/33/64/128/256/1,024, shared-memory widths, contention counts and irregular FFT/CSR dimensions |
+| Neural reference workloads | softmax, RMSNorm, LayerNorm, RoPE, ReLU, exact GELU, tanh GELU, SiLU, SwiGLU and causal/non-causal attention across FP16/BF16/FP32/FP64, row/column, batch, head and sequence grids |
+
+### Bundled configurations included by `full`
+
+| Configuration | Original cases | With default pairs | Purpose |
+|---|---:|---:|---|
+| `configs/acceptance.json` | 192 | 235 | Representatives from all 20 families |
+| `configs/acceptance_tensor_emulation.json` | 17 | 17 | Exact emulated companions for native acceptance MMA cases |
+| `configs/tensor_throughput.json` | 140 | 140 | Fixed-work tensor MMA latency/throughput controls |
+| `configs/gemm_throughput.json` | 6 | 12 | FP16/BF16 1,024³, 4,096³ and 8,192³ GEMM plus software pairs |
+| `configs/llm_shapes.json` | 372 | 717 | Dense, FP4 and quantized GEMM LLM/decode/prefill shapes |
+| `configs/memory_sweep.json` | 408 | 408 | All memory operations over explicit size/stride/work grids |
+
+Optional CUTLASS, Nsight Compute, Compute Sanitizer, NCCL, FlashAttention and
+format-specific GGUF/GPTQ/AWQ/EXL integrations are deliberately separate from
+the 404,129 core cases. Run `./bench extensions` to see their exact adapter,
+external-command or documented-gap status; absence of an external tool is never
+reported as a completed core benchmark.
+
 ## Build and select the exact GPU
 
 Requirements: Linux x86-64 or WSL2, Python 3.10+, CMake 3.24+, a CUDA-supported
