@@ -1,0 +1,2947 @@
+{
+  "schema_version": 1,
+  "description": "Register-resident issue-rate probes. The first native/emulated pair matches linked FP8 probe launch dimensions; the remaining pairs sweep blocks per SM. Shared timing policy is supplied by the runner. All outputs are validated; reset overhead is timed but not counted as mathematical work.",
+  "max_cases": 140,
+  "cases": [
+    {
+      "family": "tensor",
+      "tags": [
+        "linked_fp8_launch_controls"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks": 1056,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "linked_fp8_launch_controls"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks": 1056,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "bf16",
+        "dtype-b": "bf16",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "tf32",
+        "dtype-b": "tf32",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f64",
+        "dtype-b": "f64",
+        "accumulator": "f64",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i8",
+        "dtype-b": "i8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u8",
+        "dtype-b": "u8",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "i4",
+        "dtype-b": "i4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "u4",
+        "dtype-b": "u4",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_and",
+        "dtype-b": "b1_and",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "b1_xor",
+        "dtype-b": "b1_xor",
+        "accumulator": "i32",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "mx",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "native",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f32",
+        "backend": "emulated",
+        "scale": "nv",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 0
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e4m3",
+        "dtype-b": "e4m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e5m2",
+        "dtype-b": "e5m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e2m3",
+        "dtype-b": "e2m3",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 4,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 8,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "native",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    },
+    {
+      "family": "tensor",
+      "tags": [
+        "throughput_grid_sweep"
+      ],
+      "params": {
+        "op": "mma",
+        "dtype": "e3m2",
+        "dtype-b": "e3m2",
+        "accumulator": "f16",
+        "backend": "emulated",
+        "scale": "none",
+        "mode": "throughput",
+        "pattern": "ones",
+        "blocks-per-sm": 16,
+        "threads": 256,
+        "ilp": 8,
+        "iterations": 20000,
+        "reset-every": 512
+      }
+    }
+  ]
+}

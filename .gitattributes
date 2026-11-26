@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+*.a binary
+*.bin binary
+*.cubin binary
+*.gz binary
+*.ncu-rep binary
+*.o binary
+*.png binary
+*.so binary
+*.tar binary
+*.zip binary
+
+# Preserve byte-identical source where the supplied snapshot keeps a blank EOF line.
+docs/systems.md whitespace=-blank-at-eof
+src/alu.cu whitespace=-blank-at-eof
+src/systems.cu whitespace=-blank-at-eof

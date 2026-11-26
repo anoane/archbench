@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "max_cases": 512,
+  "cases": [
+    {
+      "family": "packed",
+      "params": {
+        "op": "dp4a",
+        "dtype": "i8",
+        "dtype-b": "u8",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "packed",
+      "params": {
+        "op": "dp2a_hi",
+        "dtype": "i16",
+        "dtype-b": "u8",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e3m2",
+        "scale": "mx",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "nv",
+        "iterations": 32,
+        "scale-exp-a": -2,
+        "scale-exp-b": 1
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "mx",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e3m2",
+        "backend": "emulated",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublaslt",
+        "dtype": "fp4_e2m1",
+        "dtype-b": "fp4_e2m1",
+        "output-dtype": "f16",
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "trans-a": "T",
+        "trans-b": "N",
+        "scale-mode": "block16",
+        "algorithms": 4
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublaslt",
+        "dtype": "fp8_e4m3",
+        "dtype-b": "fp8_e5m2",
+        "output-dtype": "f16",
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "trans-a": "T",
+        "trans-b": "N",
+        "scale-mode": "block32",
+        "algorithms": 4
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "f64",
+        "compute": "fixedpoint",
+        "emulation-strategy": "eager",
+        "m": 64,
+        "n": 64,
+        "k": 64
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "f32",
+        "m": 31,
+        "n": 33,
+        "k": 65,
+        "batch": 3,
+        "batch-mode": "pointer",
+        "batch-gap": 7,
+        "ld-pad": 3,
+        "alpha": 0.75,
+        "beta": 0.25
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublaslt",
+        "dtype": "bf16",
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "epilogue": "bias_gelu",
+        "alpha": 0.75,
+        "beta": 0.25
+      }
+    },
+    {
+      "family": "quant_gemm",
+      "params": {
+        "format": "nf4",
+        "dtype": "f32",
+        "mode": "fused",
+        "m": 17,
+        "n": 31,
+        "k": 65,
+        "group": 32
+      }
+    },
+    {
+      "family": "quant_gemm",
+      "params": {
+        "format": "s4",
+        "dtype": "bf16",
+        "mode": "end_to_end",
+        "m": 17,
+        "n": 31,
+        "k": 65,
+        "group": 32
+      }
+    },
+    {
+      "family": "integer_width",
+      "params": {
+        "bits": 37,
+        "signed": true,
+        "op": "shr",
+        "elements": 4099
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "cp_async",
+        "elements": 4100
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "pointer_chase",
+        "dtype": "u32",
+        "elements": 4097,
+        "iterations": 10000
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "shared_bank",
+        "elements": 4096,
+        "stride": 32,
+        "iterations": 32
+      }
+    },
+    {
+      "family": "collective",
+      "params": {
+        "op": "scan",
+        "elements": 4099
+      }
+    },
+    {
+      "family": "workload",
+      "params": {
+        "op": "attention",
+        "dtype": "f32",
+        "sequence": 17,
+        "head-dim": 16,
+        "causal": true
+      }
+    },
+    {
+      "family": "workload",
+      "params": {
+        "op": "rope",
+        "dtype": "bf16",
+        "rows": 17,
+        "cols": 66
+      }
+    },
+    {
+      "family": "transfer",
+      "params": {
+        "op": "managed_first_touch",
+        "elements": 4099
+      }
+    },
+    {
+      "family": "sparse",
+      "params": {
+        "op": "csr_spmm",
+        "dtype": "f64",
+        "rows": 31,
+        "cols": 65,
+        "n": 7,
+        "nnz-per-row": 8
+      }
+    },
+    {
+      "family": "fft",
+      "params": {
+        "op": "c2r",
+        "dtype": "f32",
+        "rank": 2,
+        "nx": 32,
+        "ny": 16,
+        "batch": 2
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "mx",
+        "mma-kind": "expanded",
+        "iterations": 32
+      }
+    },
+    {
+      "family": "convert",
+      "params": {
+        "op": "cast",
+        "dtype": "f32",
+        "dtype-b": "f64",
+        "size": 4099,
+        "round": "rn"
+      }
+    }
+  ],
+  "sweeps": [
+    {
+      "family": "integer",
+      "params": {
+        "iterations": 32,
+        "mode": "throughput",
+        "ilp": 4
+      },
+      "axes": {
+        "dtype": [
+          "i8",
+          "u8",
+          "i16",
+          "u16",
+          "i32",
+          "u32",
+          "i64",
+          "u64",
+          "i7",
+          "u37",
+          "i128",
+          "u128"
+        ],
+        "op": [
+          "mad",
+          "div",
+          "rem"
+        ]
+      }
+    },
+    {
+      "family": "scalar",
+      "params": {
+        "op": "fma",
+        "iterations": 32
+      },
+      "axes": {
+        "dtype": [
+          "f16",
+          "bf16",
+          "f32",
+          "f64"
+        ]
+      }
+    },
+    {
+      "family": "packed",
+      "params": {
+        "op": "fma",
+        "iterations": 32
+      },
+      "axes": {
+        "dtype": [
+          "f16x2",
+          "bf16x2"
+        ]
+      }
+    },
+    {
+      "family": "bit",
+      "params": {
+        "dtype": "u32",
+        "iterations": 32
+      },
+      "axes": {
+        "op": [
+          "lop3",
+          "prmt",
+          "shf"
+        ]
+      }
+    },
+    {
+      "family": "sfu",
+      "params": {
+        "dtype": "f32",
+        "iterations": 32
+      },
+      "axes": {
+        "op": [
+          "sin",
+          "cos",
+          "exp2",
+          "log2",
+          "rcp",
+          "rsqrt"
+        ],
+        "precision": [
+          "approx",
+          "precise"
+        ]
+      }
+    },
+    {
+      "family": "convert",
+      "params": {
+        "op": "cast",
+        "dtype": "f32",
+        "size": 4099
+      },
+      "axes": {
+        "dtype-b": [
+          "f16",
+          "bf16",
+          "i16",
+          "u32"
+        ],
+        "round": [
+          "rn",
+          "rz",
+          "rd",
+          "ru"
+        ]
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32
+      },
+      "axes": {
+        "dtype": [
+          "f16",
+          "bf16",
+          "tf32",
+          "f64",
+          "i8",
+          "u8",
+          "i4",
+          "u4",
+          "b1_xor",
+          "b1_and",
+          "e4m3",
+          "e5m2"
+        ]
+      }
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "m": 64,
+        "n": 64,
+        "k": 64,
+        "algorithms": 4
+      },
+      "axes": {
+        "dtype": [
+          "f16",
+          "bf16",
+          "f32",
+          "f64",
+          "i8"
+        ],
+        "backend": [
+          "cublas",
+          "cublaslt"
+        ]
+      }
+    },
+    {
+      "family": "blas",
+      "params": {
+        "dtype": "c64",
+        "n": 31,
+        "m": 33,
+        "k": 17
+      },
+      "axes": {
+        "op": [
+          "dot",
+          "axpy",
+          "trsm",
+          "trmm",
+          "hemm"
+        ]
+      }
+    },
+    {
+      "family": "quant",
+      "params": {
+        "elements": 4099,
+        "group": 32,
+        "op": "roundtrip"
+      },
+      "axes": {
+        "format": [
+          "s1",
+          "s3",
+          "s4",
+          "u4",
+          "s8",
+          "s16",
+          "e2m1",
+          "e2m3",
+          "e3m2",
+          "e4m3",
+          "e5m2",
+          "nf4",
+          "f16",
+          "bf16"
+        ]
+      }
+    },
+    {
+      "family": "atomic",
+      "params": {
+        "op": "add",
+        "elements": 4099,
+        "addresses": 1,
+        "iterations": 1
+      },
+      "axes": {
+        "dtype": [
+          "i8",
+          "u8",
+          "i16",
+          "u16",
+          "i32",
+          "u32",
+          "i64",
+          "u64",
+          "f16",
+          "bf16",
+          "f32",
+          "f64"
+        ]
+      }
+    },
+    {
+      "family": "collective",
+      "params": {
+        "elements": 4099
+      },
+      "axes": {
+        "op": [
+          "block_scan",
+          "block_reduce",
+          "sort",
+          "shuffle",
+          "ballot",
+          "barrier"
+        ]
+      }
+    },
+    {
+      "family": "workload",
+      "params": {
+        "rows": 17,
+        "cols": 65,
+        "elements": 1105
+      },
+      "axes": {
+        "dtype": [
+          "f16",
+          "bf16",
+          "f32",
+          "f64"
+        ],
+        "op": [
+          "softmax",
+          "rmsnorm",
+          "layernorm",
+          "gelu",
+          "swiglu"
+        ]
+      }
+    },
+    {
+      "family": "transfer",
+      "params": {
+        "elements": 4099
+      },
+      "axes": {
+        "op": [
+          "h2d",
+          "d2h"
+        ],
+        "pinned": [
+          true,
+          false
+        ]
+      }
+    },
+    {
+      "family": "launch",
+      "params": {
+        "iterations": 16,
+        "graph-nodes": 8
+      },
+      "axes": {
+        "op": [
+          "empty",
+          "graph"
+        ]
+      }
+    },
+    {
+      "family": "fft",
+      "params": {
+        "n": 128
+      },
+      "axes": {
+        "dtype": [
+          "f16",
+          "bf16",
+          "f32",
+          "f64"
+        ],
+        "op": [
+          "c2c",
+          "r2c"
+        ]
+      }
+    }
+  ]
+}

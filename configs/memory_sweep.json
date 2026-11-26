@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "max_cases": 20000,
+  "sweeps": [
+    {
+      "family": "memory",
+      "params": {
+        "dtype": "f32"
+      },
+      "axes": {
+        "op": [
+          "read",
+          "write",
+          "copy",
+          "triad",
+          "gather",
+          "scatter",
+          "cp_async",
+          "shared_copy"
+        ],
+        "elements": [
+          1024,
+          4096,
+          16384,
+          65536,
+          262144,
+          1048576,
+          4194304,
+          16777216,
+          67108864,
+          268435456
+        ],
+        "threads": [
+          64,
+          128,
+          256,
+          512
+        ]
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "strided",
+        "dtype": "f32",
+        "elements": 16777216
+      },
+      "axes": {
+        "stride": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          16,
+          31,
+          32,
+          33,
+          64,
+          128,
+          256,
+          1024
+        ],
+        "threads": [
+          64,
+          128,
+          256,
+          512
+        ]
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "pointer_chase",
+        "dtype": "u32",
+        "iterations": 1000000
+      },
+      "axes": {
+        "elements": [
+          1024,
+          4096,
+          16384,
+          65536,
+          262144,
+          1048576,
+          4194304,
+          16777216
+        ]
+      }
+    },
+    {
+      "family": "memory",
+      "params": {
+        "op": "shared_bank",
+        "dtype": "f32",
+        "iterations": 256
+      },
+      "axes": {
+        "stride": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          31,
+          32
+        ],
+        "threads": [
+          64,
+          128,
+          256,
+          512
+        ]
+      }
+    }
+  ]
+}

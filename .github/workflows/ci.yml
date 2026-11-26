@@ -1,0 +1,46 @@
+name: Host references and CUDA compilation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  host:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Host unit and independent reference tests
+        run: |
+          ./bench selftest --verbose
+          python3 tools/check_alu_reference.py --compiler g++
+          cmake -S . -B build-host -DARCHBENCH_ENABLE_CUDA=OFF
+          cmake --build build-host --parallel 2
+          ctest --test-dir build-host --output-on-failure
+  cuda_compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        architecture: ["80", "89", "120a"]
+    container:
+      image: nvidia/cuda:13.5.0-devel-ubuntu24.04@sha256:13adcab240e4d8fde48262f293881afd5cc61ac639a3f6bc911d7b8d8e8bc4d0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends python3 cmake ninja-build g++
+      - name: Compile exact target (no GPU execution)
+        run: ./bench build --arch ${{ matrix.architecture }} --jobs 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cuda-compile-${{ matrix.architecture }}
+          path: |
+            build/*.log
+            build/build_provenance.json
+            build/bin/*
+# Compilation is a separate gate from GPU numerical correctness. For hardware
+# acceptance use tools/validate_gpu.py on a host with the matching physical GPU.

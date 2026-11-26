@@ -1,0 +1,11 @@
+ArchBench licensing and copyright notice
+
+Copyright (C) 2026 Fabiano Anemone <fabiano.anemone@gmail.com>
+
+ArchBench is original work written from scratch and is distributed under the
+GNU Affero General Public License, version 3 or any later version
+(AGPL-3.0-or-later). The complete license text is in LICENSE. No alternative
+project license is offered by this repository. Third-party libraries, tools and
+numeric constants retain the licenses listed in THIRD_PARTY_NOTICES.md.
+
+SPDX-License-Identifier: AGPL-3.0-or-later

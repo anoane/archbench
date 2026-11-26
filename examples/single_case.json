@@ -1,0 +1,17 @@
+{
+  "family": "gemm",
+  "params": {
+    "backend": "cublaslt",
+    "dtype": "fp4_e2m1",
+    "dtype-b": "fp4_e2m1",
+    "output-dtype": "bf16",
+    "m": 4096,
+    "n": 4096,
+    "k": 4096,
+    "trans-a": "T",
+    "trans-b": "N",
+    "scale-mode": "block16",
+    "algorithms": 32,
+    "workspace-mib": 256
+  }
+}

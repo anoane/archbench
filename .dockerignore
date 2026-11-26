@@ -1,0 +1,10 @@
+build
+runs
+artifacts
+__pycache__
+*.pyc
+*.zip
+*.cubin
+*.o
+.git
+tests/codec_host

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "max_cases": 32,
+  "description": "Comparable workloads to gpu-unlock-ada gemm_bench.cu: f16/bf16 to f32, NN, 1024/4096/8192. Runner adds matching software cases by default. Full analytic output validation; timing policy is controlled by the runner.",
+  "cases": [
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "f16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 1024,
+        "n": 1024,
+        "k": 1024,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "f16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 4096,
+        "n": 4096,
+        "k": 4096,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "f16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 8192,
+        "n": 8192,
+        "k": 8192,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "bf16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 1024,
+        "n": 1024,
+        "k": 1024,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "bf16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 4096,
+        "n": 4096,
+        "k": 4096,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    },
+    {
+      "family": "gemm",
+      "params": {
+        "backend": "cublas",
+        "dtype": "bf16",
+        "output-dtype": "f32",
+        "compute": "default",
+        "m": 8192,
+        "n": 8192,
+        "k": 8192,
+        "trans-a": "N",
+        "trans-b": "N",
+        "alpha": 1,
+        "beta": 0,
+        "batch": 1,
+        "epilogue": "default",
+        "input-pattern": "rank1",
+        "cublas-algo": "default_tensor_op"
+      },
+      "tags": [
+        "sustained_throughput",
+        "rank1_full_validation",
+        "upstream_gemm_comparable"
+      ]
+    }
+  ]
+}

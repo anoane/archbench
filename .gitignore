@@ -1,0 +1,12 @@
+/build*/
+/runs/
+/artifacts/
+__pycache__/
+*.pyc
+*.o
+*.a
+*.so
+*.cubin
+*.ncu-rep
+/tests/codec_host
+*.egg-info/

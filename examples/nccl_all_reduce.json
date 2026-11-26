@@ -1,0 +1,4 @@
+{
+  "provider": "NCCL tests (external, requires installed executable)",
+  "argv": ["all_reduce_perf", "-b", "8", "-e", "1G", "-f", "2", "-g", "2", "-c", "1"]
+}

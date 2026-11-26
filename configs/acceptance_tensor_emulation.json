@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "description": "Separate emulated counterparts of all 17 native tensor cases in acceptance.json. Run alongside the unchanged acceptance matrix; native and emulated results keep distinct identities.",
+  "max_cases": 17,
+  "cases": [
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "f16",
+        "dtype-b": "f16",
+        "accumulator": "f16",
+        "iterations": 32,
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e3m2",
+        "scale": "mx",
+        "iterations": 32,
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "nv",
+        "iterations": 32,
+        "scale-exp-a": -2,
+        "scale-exp-b": 1,
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "mx",
+        "iterations": 32,
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "dtype": "e2m1",
+        "dtype-b": "e2m1",
+        "scale": "mx",
+        "mma-kind": "expanded",
+        "iterations": 32,
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "f16",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "bf16",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "tf32",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "f64",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "i8",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "u8",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "i4",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "u4",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "b1_xor",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "b1_and",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "e4m3",
+        "backend": "emulated"
+      }
+    },
+    {
+      "family": "tensor",
+      "params": {
+        "op": "mma",
+        "iterations": 32,
+        "dtype": "e5m2",
+        "backend": "emulated"
+      }
+    }
+  ]
+}

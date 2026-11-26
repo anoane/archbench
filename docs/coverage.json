@@ -1,0 +1,340 @@
+{
+  "schema_version": 2,
+  "meaning": "Requested finite cases, not executions or passes. software_paired is the default new selection; JSONL replay is exact.",
+  "profiles": {
+    "smoke": {
+      "base": {
+        "total": 1360,
+        "families": {
+          "integer": 60,
+          "scalar": 16,
+          "bit": 18,
+          "packed": 36,
+          "sfu": 24,
+          "convert": 144,
+          "integer_width": 120,
+          "tensor": 368,
+          "gemm": 134,
+          "blas": 62,
+          "quant": 42,
+          "quant_gemm": 48,
+          "memory": 13,
+          "collective": 8,
+          "atomic": 228,
+          "workload": 13,
+          "launch": 2,
+          "transfer": 8,
+          "sparse": 4,
+          "fft": 12
+        }
+      },
+      "software_paired": {
+        "total": 1608,
+        "families": {
+          "integer": 60,
+          "scalar": 16,
+          "bit": 18,
+          "packed": 36,
+          "sfu": 24,
+          "convert": 144,
+          "integer_width": 120,
+          "tensor": 368,
+          "gemm": 268,
+          "blas": 124,
+          "quant": 42,
+          "quant_gemm": 84,
+          "memory": 13,
+          "collective": 8,
+          "atomic": 228,
+          "workload": 13,
+          "launch": 2,
+          "transfer": 8,
+          "sparse": 8,
+          "fft": 24
+        }
+      }
+    },
+    "standard": {
+      "base": {
+        "total": 6156,
+        "families": {
+          "integer": 832,
+          "scalar": 72,
+          "bit": 18,
+          "packed": 36,
+          "sfu": 24,
+          "convert": 144,
+          "integer_width": 280,
+          "tensor": 378,
+          "gemm": 751,
+          "blas": 264,
+          "quant": 1206,
+          "quant_gemm": 1440,
+          "memory": 35,
+          "collective": 22,
+          "atomic": 228,
+          "workload": 292,
+          "launch": 2,
+          "transfer": 24,
+          "sparse": 12,
+          "fft": 96
+        }
+      },
+      "software_paired": {
+        "total": 8369,
+        "families": {
+          "integer": 832,
+          "scalar": 72,
+          "bit": 18,
+          "packed": 36,
+          "sfu": 24,
+          "convert": 144,
+          "integer_width": 280,
+          "tensor": 388,
+          "gemm": 1502,
+          "blas": 528,
+          "quant": 1206,
+          "quant_gemm": 2520,
+          "memory": 35,
+          "collective": 22,
+          "atomic": 228,
+          "workload": 292,
+          "launch": 2,
+          "transfer": 24,
+          "sparse": 24,
+          "fft": 192
+        }
+      }
+    },
+    "exhaustive": {
+      "base": {
+        "total": 315894,
+        "families": {
+          "integer": 209664,
+          "scalar": 2268,
+          "bit": 567,
+          "packed": 1134,
+          "sfu": 756,
+          "convert": 339,
+          "integer_width": 1280,
+          "tensor": 6043,
+          "gemm": 78900,
+          "blas": 450,
+          "quant": 7206,
+          "quant_gemm": 5760,
+          "memory": 179,
+          "collective": 68,
+          "atomic": 532,
+          "workload": 516,
+          "launch": 4,
+          "transfer": 72,
+          "sparse": 36,
+          "fft": 120
+        }
+      },
+      "software_paired": {
+        "total": 399945,
+        "families": {
+          "integer": 209664,
+          "scalar": 2268,
+          "bit": 567,
+          "packed": 1134,
+          "sfu": 756,
+          "convert": 339,
+          "integer_width": 1280,
+          "tensor": 6268,
+          "gemm": 157800,
+          "blas": 900,
+          "quant": 7206,
+          "quant_gemm": 10080,
+          "memory": 179,
+          "collective": 68,
+          "atomic": 532,
+          "workload": 516,
+          "launch": 4,
+          "transfer": 72,
+          "sparse": 72,
+          "fft": 240
+        }
+      }
+    },
+    "full": {
+      "base": {
+        "total": 318948,
+        "families": {
+          "integer": 209700,
+          "scalar": 2272,
+          "bit": 570,
+          "packed": 1138,
+          "sfu": 768,
+          "convert": 495,
+          "integer_width": 1401,
+          "tensor": 6586,
+          "gemm": 79185,
+          "blas": 517,
+          "quant": 7220,
+          "quant_gemm": 6770,
+          "memory": 573,
+          "collective": 82,
+          "atomic": 772,
+          "workload": 626,
+          "launch": 6,
+          "transfer": 85,
+          "sparse": 41,
+          "fft": 141
+        }
+      },
+      "software_paired": {
+        "total": 404129,
+        "families": {
+          "integer": 209700,
+          "scalar": 2272,
+          "bit": 570,
+          "packed": 1138,
+          "sfu": 768,
+          "convert": 495,
+          "integer_width": 1401,
+          "tensor": 6811,
+          "gemm": 158365,
+          "blas": 1034,
+          "quant": 7220,
+          "quant_gemm": 11847,
+          "memory": 573,
+          "collective": 82,
+          "atomic": 772,
+          "workload": 626,
+          "launch": 6,
+          "transfer": 85,
+          "sparse": 82,
+          "fft": 282
+        }
+      }
+    }
+  },
+  "configs": {
+    "acceptance.json": {
+      "base": {
+        "total": 192,
+        "families": {
+          "packed": 4,
+          "tensor": 18,
+          "gemm": 15,
+          "quant_gemm": 2,
+          "integer_width": 1,
+          "memory": 3,
+          "collective": 7,
+          "workload": 22,
+          "transfer": 5,
+          "sparse": 1,
+          "fft": 9,
+          "convert": 17,
+          "integer": 36,
+          "scalar": 4,
+          "bit": 3,
+          "sfu": 12,
+          "blas": 5,
+          "quant": 14,
+          "atomic": 12,
+          "launch": 2
+        }
+      },
+      "software_paired": {
+        "total": 235,
+        "families": {
+          "packed": 4,
+          "tensor": 35,
+          "gemm": 25,
+          "quant_gemm": 3,
+          "integer_width": 1,
+          "memory": 3,
+          "collective": 7,
+          "workload": 22,
+          "transfer": 5,
+          "sparse": 2,
+          "fft": 18,
+          "convert": 17,
+          "integer": 36,
+          "scalar": 4,
+          "bit": 3,
+          "sfu": 12,
+          "blas": 10,
+          "quant": 14,
+          "atomic": 12,
+          "launch": 2
+        }
+      }
+    },
+    "acceptance_tensor_emulation.json": {
+      "base": {
+        "total": 17,
+        "families": {
+          "tensor": 17
+        }
+      },
+      "software_paired": {
+        "total": 17,
+        "families": {
+          "tensor": 17
+        }
+      }
+    },
+    "gemm_throughput.json": {
+      "base": {
+        "total": 6,
+        "families": {
+          "gemm": 6
+        }
+      },
+      "software_paired": {
+        "total": 12,
+        "families": {
+          "gemm": 12
+        }
+      }
+    },
+    "llm_shapes.json": {
+      "base": {
+        "total": 372,
+        "families": {
+          "gemm": 264,
+          "quant_gemm": 108
+        }
+      },
+      "software_paired": {
+        "total": 717,
+        "families": {
+          "gemm": 528,
+          "quant_gemm": 189
+        }
+      }
+    },
+    "memory_sweep.json": {
+      "base": {
+        "total": 408,
+        "families": {
+          "memory": 408
+        }
+      },
+      "software_paired": {
+        "total": 408,
+        "families": {
+          "memory": 408
+        }
+      }
+    },
+    "tensor_throughput.json": {
+      "base": {
+        "total": 140,
+        "families": {
+          "tensor": 140
+        }
+      },
+      "software_paired": {
+        "total": 140,
+        "families": {
+          "tensor": 140
+        }
+      }
+    }
+  }
+}
