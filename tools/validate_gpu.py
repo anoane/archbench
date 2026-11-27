@@ -36,9 +36,9 @@ def main():
     invoke(["doctor", "--output", output / "doctor.json"], "environment")
     suite = output / "acceptance"
     selector = ["--gpu-uuid", args.gpu_uuid] if args.gpu_uuid else ["--device", args.device]
-    code = invoke(["run", "--matrix", ROOT / "configs/acceptance.json", "--binary", binary, "--output", suite,
-                   *selector, "--quality", "quick", "--samples", 3, "--warmup", 1, "--target-ms", 2,
-                   "--max-repeats", 128, "--timeout", 120, "--progress-every", 1], "numerical_acceptance")
+    invoke(["run", "--matrix", ROOT / "configs/acceptance.json", "--binary", binary, "--output", suite,
+            *selector, "--quality", "quick", "--samples", 3, "--warmup", 1, "--target-ms", 2,
+            "--max-repeats", 128, "--timeout", 120, "--progress-every", 1], "numerical_acceptance")
     if (suite / "results.jsonl").exists():
         invoke(["report", suite], "report")
         selected_device = json.loads((suite / "run.json").read_text())["identity"]["policy"]["device"]

@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from archbench.model import Case
 from archbench.runner import run_suite, invoke_worker, read_jsonl, repair_tail
-from archbench.report import render_report, compare, summary
+from archbench.report import render_report, compare
 
 MOCK = Path(__file__).parent / "fixtures/mock_worker.py"
 

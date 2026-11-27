@@ -141,7 +141,7 @@ def make_parser():
     comparison.add_argument("--allow-software-mismatch", action="store_true")
     coverage = sub.add_parser("coverage", help="honest per-family validation and missing-case counts")
     coverage.add_argument("run", type=Path)
-    extension = sub.add_parser("extensions", help="list adapters and explicit scope gaps")
+    sub.add_parser("extensions", help="list adapters and explicit scope gaps")
     probes = sub.add_parser("probe", help="compile-only PTX capability probes, never benchmark results")
     probes.add_argument("--arch", default="80,89,120a")
     probes.add_argument("--output", type=Path, required=True)
